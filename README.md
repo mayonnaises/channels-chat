@@ -1,5 +1,5 @@
 # Django-Channels-Chat
-
+<img width="400" alt="screenshot" src="https://user-images.githubusercontent.com/46762959/120053975-3d268b00-c068-11eb-85bd-12e7e9efc64c.png">
 A real-time chat app using Django and Channels.<br>
 It has a chat room entry restriction function and a function to save messages.<br>
 
