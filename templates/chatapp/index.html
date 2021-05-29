@@ -1,0 +1,34 @@
+{% extends "chatapp/chatapp_base.html" %}
+{% block link %}
+<style type="text/css">
+    #top_page {
+        padding: 40px 10%;
+    }
+    h1 {
+        font-size: 3.0rem;
+        color: #333;
+    }
+    h2 {
+        margin: 20px 0 10px;
+        font-size:  2.0rem;
+        color: #333;
+    }
+    a {
+        margin: 0 20px 0 0;
+        font-size:  1.6rem;
+        color: #176aba;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div id="top_page">
+    <h1>Sample Chat App</h1>
+    <h2>ユーザー 一覧</h2>
+
+    {% for user in user_list %}
+        {% if user != request.user %}
+        <a href="{% url 'chatapp:room_redirect' user_pk=user.pk %}" class="user-name">{{ user.username }}</a>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
