@@ -91,3 +91,7 @@ class OneonOneChatConsumer(AsyncWebsocketConsumer):
             )
         except Exception:
             raise HttpResponse(status=500)
+
+
+class GroupChat(AsyncWebsocketConsumer):
+    pass

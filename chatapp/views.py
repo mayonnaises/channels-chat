@@ -62,3 +62,7 @@ class RoomRedirectView(View):
             room = self.get_chat_room([req_user, another_user])
             return redirect('chatapp:chat_room', room_pk=room.pk)
         return redirect('http://localhost:8000/admin/')
+
+
+class GroupChatView(LoginRequiredMixin, TemplateView):
+    template_name = 'chatapp/group_chat.html'
