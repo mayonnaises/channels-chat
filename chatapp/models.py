@@ -33,6 +33,33 @@ class OneonOneRoom(models.Model):
         return f'{self.first_user.username} and {self.second_user.username}'
 
 
+class GroupRoom(models.Model):
+    '''人数制限なしのグループチャットルーム'''
+
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False
+    )
+    name = models.CharField(
+        max_length=20
+    )
+    owner = models.ForeignKey(
+        get_user_model(),
+        related_name='room_owner',
+        on_delete=models.CASCADE
+    )
+    participant = models.ManyToManyField(
+        get_user_model()
+    )
+    created_at = models.DateTimeField(
+        default=timezone.now
+    )
+
+    def __str__(self):
+        return f
+
+
 class Message(models.Model):
     '''チャットメッセージ'''
 

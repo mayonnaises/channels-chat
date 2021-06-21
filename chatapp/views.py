@@ -66,3 +66,7 @@ class RoomRedirectView(View):
 
 class GroupChatView(LoginRequiredMixin, TemplateView):
     template_name = 'chatapp/group_chat.html'
+
+    def get_context_data(self, room_pk):
+        context = super().get_context_data()
+        return context
