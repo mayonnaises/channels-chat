@@ -6,7 +6,7 @@ from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect
 from django.views.generic import TemplateView, View
 
-from .models import OneonOneRoom, Message
+from .models import OneonOneRoom, GroupRoom, Message
 
 
 class TopPageView(TemplateView):
@@ -69,4 +69,8 @@ class GroupChatView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, room_pk):
         context = super().get_context_data()
+        room = GroupRoom.objects.get(pk=room_pk)
+        context.update({
+            'room': room
+        })
         return context

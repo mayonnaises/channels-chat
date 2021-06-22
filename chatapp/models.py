@@ -85,3 +85,29 @@ class Message(models.Model):
 
     def __str__(self):
         return f'sender: {self.sender.username} ({self.content[:15]})'
+
+
+class GroupMessage(models.Model):
+    '''グループルームのチャットメッセージ'''
+    room = models.ForeignKey(
+        GroupRoom,
+        related_name='message_room',
+        on_delete=models.CASCADE
+    )
+    sender = models.ForeignKey(
+        get_user_model(),
+        related_name='group_message_sender',
+        on_delete=models.CASCADE
+    )
+    content = models.CharField(
+        max_length=100
+    )
+    timestamp = models.DateTimeField(
+        default=timezone.now
+    )
+
+    class Meta:
+        ordering = ['timestamp']
+
+    def __str__(self):
+        return f'sender: {self.sender.username} ({self.content[:15]})'
