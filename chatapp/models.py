@@ -57,7 +57,7 @@ class GroupRoom(models.Model):
     )
 
     def __str__(self):
-        return f
+        return f'{self.name}'
 
 
 class Message(models.Model):
