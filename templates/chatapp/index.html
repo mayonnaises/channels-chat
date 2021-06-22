@@ -30,5 +30,10 @@
         <a href="{% url 'chatapp:room_redirect' user_pk=user.pk %}" class="user-name">{{ user.username }}</a>
         {% endif %}
     {% endfor %}
+
+    <h2>グループ一覧</h2>
+    {% for group in group_list %}
+        <a href="">{{ group.name }}</a>
+    {% endfor %}
 </div>
 {% endblock %}

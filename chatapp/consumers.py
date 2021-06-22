@@ -93,5 +93,5 @@ class OneonOneChatConsumer(AsyncWebsocketConsumer):
             raise HttpResponse(status=500)
 
 
-class GroupChat(AsyncWebsocketConsumer):
+class GroupChatConsumer(AsyncWebsocketConsumer):
     pass

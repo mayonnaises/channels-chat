@@ -7,6 +7,7 @@ from django.shortcuts import redirect
 from django.views.generic import TemplateView, View
 
 from .models import (
+    GroupMessage,
     GroupRoom,
     OneonOneRoom,
     Message
@@ -77,6 +78,7 @@ class GroupChatView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data()
         room = GroupRoom.objects.get(pk=room_pk)
         context.update({
-            'room': room
+            'room': room,
+            'message_list': GroupMessage.objects.filter(room=room).order_by('timestamp'),
         })
         return context
