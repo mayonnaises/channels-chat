@@ -1,0 +1,16 @@
+* {
+    font-size: 10px;
+}
+.g-sender-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #176aba;
+}
+.g-sender-icon {
+    height: 50px;width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.g-message-content {
+    font-size: 1.45rem;
+}

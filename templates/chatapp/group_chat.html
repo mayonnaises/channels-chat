@@ -1,12 +1,21 @@
 {% extends "chatapp/chatapp_base.html" %}
 {% load static %}
 {% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/group_chat.css' %}">
 {% endblock %}
 {% block content %}
 <div id="group_chat_page">
     <div id="chat_log">
         {% for message in message_list %}
         <div class="g-message-wrapper">
+            {% if message.sender.icon %}
+                <img src="{{ message.sender.icon.url }}" alt="{{ message.sender.icon.url }}" class="g-sender-icon">
+            {% else %}
+                <svg class="g-sender-icon">
+                    <use xlink:href="#user_symbol"></use>
+                </svg>
+            {% endif %}
+            <p class="g-sender-name">{{ message.sender.username }}</p>
             <p class="g-message-content">{{ message.content }}</p>
         </div>
         {% endfor %}
