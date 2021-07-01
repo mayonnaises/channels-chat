@@ -33,7 +33,7 @@
 
     <h2>グループ一覧</h2>
     {% for group in group_list %}
-        <a href="">{{ group.name }}</a>
+        <a href="{% url 'chatapp:group_room' room_pk=group.pk %}">{{ group.name }}</a>
     {% endfor %}
 </div>
 {% endblock %}

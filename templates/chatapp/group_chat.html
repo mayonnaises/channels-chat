@@ -3,4 +3,13 @@
 {% block link %}
 {% endblock %}
 {% block content %}
+<div id="group_chat_page">
+    <div id="chat_log">
+        {% for message in message_list %}
+        <div class="g-message-wrapper">
+            <p class="g-message-content">{{ message.content }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
